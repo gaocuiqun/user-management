@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="" reloadable="true" crossContext="true">
+
+  <Resource name="jdbc/example"
+            type="javax.sql.DataSource"
+            auth="Container"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://192.168.0.89;databaseName=example"
+            username="sa"
+            password=""
+            validationQuery="SELECT 1"
+            maxTotal="100"
+            maxIdle="30"
+            maxWaitMillis="10000"
+  />
+
+</Context>
+       

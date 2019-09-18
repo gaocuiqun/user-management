@@ -1,0 +1,5 @@
+user, create-user
+, retrieve-user
+, update-user
+, delete-user
+, query-user

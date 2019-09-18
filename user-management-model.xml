@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<model name="user_management" package="com.sample" dbSchema="userdb">
+  <entity name="user" aggregateRoot="true" generate="true">
+    <field no="1" name="user_id" type="string" length="64" required="true"/>
+    <field no="2" name="user_name" type="string" length="64" aggregate="true"/>
+    <field no="3" name="password" type="string" length="64" aggregate="true"/>
+    <primaryKey name="user_pk">
+      <field name="user_id"/>
+    </primaryKey>
+  </entity>
+</model>

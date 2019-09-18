@@ -1,0 +1,44 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+package com.sample.message;
+option java_package = "com.sample.message";
+option java_outer_classname = "UserManagement";
+option java_multiple_files = true;
+
+import "scalapb/scalapb.proto";
+option (scalapb.options) = {
+  flat_package: true
+};
+
+message UserVo {
+  string userId = 1;
+  string userName = 2;
+  string password = 3;
+}
+
+message UserListVo {
+  repeated UserVo items = 1;
+  bool hasMore = 2;
+  string pagingState = 3;
+}
+
+message CreateUserCmd {
+  string userId = 1;
+  string userName = 2;
+  string password = 3;
+}
+
+message UpdateUserCmd {
+  string userId = 1;
+  string userName = 2;
+  string password = 3;
+}
+
+message DeleteUserCmd {
+  string userId = 1;
+}
+
+message RetrieveUserCmd {
+  string userId = 1;
+}
