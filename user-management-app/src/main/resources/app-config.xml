@@ -20,12 +20,12 @@
   <context:annotation-config />
   <context:component-scan base-package="com.sample" />
 
-  <bean id="dataSource" class="com.microsoft.sqlserver.jdbc.SQLServerDataSource">
-    <property name="serverName" value="192.168.0.38"/>
-    <property name="portNumber" value="1433"/>
-    <property name="databaseName" value="userManagement"/>
-    <property name="user" value="sa"/>
-    <property name="password" value=""/>
+  <bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
+    <property name="serverName" value="113.108.158.19"/>
+    <property name="portNumber" value="3306"/>
+    <property name="databaseName" value="userdb"/>
+    <property name="user" value="userdb"/>
+    <property name="password" value="password"/>
   </bean>
 
   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
