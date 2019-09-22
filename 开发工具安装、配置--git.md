@@ -3,7 +3,7 @@
 - https://blog.csdn.net/u010839779/article/details/81177429
 - https://www.cnblogs.com/tugenhua0707/p/4050072.html
 
-## 重点五个命令：
+## 重点七个命令：
 
 1. 从Github克隆仓库到本地，例子：
 
