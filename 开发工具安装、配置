@@ -8,4 +8,7 @@ mysql
     4、Mysql安装成功后，默认的root用户密码为空，需要创建root用户的密码：mysqladmin -u root password "new_password";
     5、连接到Mysql服务器：mysql -u root -p
        Enter password:*******
+       mysqld --initialize --console
+       执行完成后，会输出 root 用户的初始默认密码
 二、运行安装程序mysql-installer-commercial-8.0.17.0.msi
+
