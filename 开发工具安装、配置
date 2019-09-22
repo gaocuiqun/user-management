@@ -1,0 +1,11 @@
+
+
+mysql
+一、直接解压mysql-advanced-5.7.27-win32.zip
+    1、解压后，初始化MySQL：mysqld --initialize
+    2、启动 MySQL：systemctl start mysqld
+    3、查看 MySQL 运行状态：systemctl status mysqld
+    4、Mysql安装成功后，默认的root用户密码为空，需要创建root用户的密码：mysqladmin -u root password "new_password";
+    5、连接到Mysql服务器：mysql -u root -p
+       Enter password:*******
+二、运行安装程序mysql-installer-commercial-8.0.17.0.msi
