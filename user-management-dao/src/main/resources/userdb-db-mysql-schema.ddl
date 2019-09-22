@@ -9,6 +9,7 @@ CREATE DATABASE userdb DEFAULT CHARACTER SET 'UTF8' DEFAULT COLLATE utf8_unicode
 
 CREATE USER 'userdb' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'userdb' WITH GRANT OPTION;
+ALTER USER 'userdb' IDENTIFIED WITH mysql_native_password BY 'password';
 
 USE userdb;
 
