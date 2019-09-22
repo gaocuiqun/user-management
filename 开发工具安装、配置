@@ -11,4 +11,8 @@ mysql
        mysqld --initialize --console
        执行完成后，会输出 root 用户的初始默认密码
 二、运行安装程序mysql-installer-commercial-8.0.17.0.msi
+三、命令行可访问mysql，但gui工具连接不上mysql
+    mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+四、修改密码：
+    mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456' PASSWORD EXPIRE NEVER;
 
