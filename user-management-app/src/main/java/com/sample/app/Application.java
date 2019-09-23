@@ -3,12 +3,10 @@ package com.sample.app;
 import com.github.apuex.springbootsolution.runtime.Messages;
 import com.google.protobuf.Descriptors;
 import com.google.protobuf.util.JsonFormat;
-import com.sample.controller.CaptchaFilter;
 import com.sample.message.UserManagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -53,17 +51,5 @@ public class Application extends SpringBootServletInitializer {
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
     return application.sources(Application.class);
   }
-
-//  @Bean
-//  public FilterRegistrationBean<CaptchaFilter> loggingFilter(){
-//    FilterRegistrationBean<CaptchaFilter> registrationBean
-//            = new FilterRegistrationBean<>();
-//
-//    registrationBean.setFilter(new CaptchaFilter());
-//    registrationBean.addUrlPatterns("/login");
-//    registrationBean.setOrder(0);
-//
-//    return registrationBean;
-//  }
 }
     
