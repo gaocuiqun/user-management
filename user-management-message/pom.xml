@@ -41,8 +41,8 @@
         <artifactId>protobuf-maven-plugin</artifactId>
         <version>0.5.1</version>
         <configuration>
-          <protocExecutable>/usr/local/bin/protoc</protocExecutable>
-          <!--protocExecutable>C:\Java\protoc-3.6.0-win32\bin\protoc.exe</protocExecutable-->
+          <!--protocExecutable>/usr/local/bin/protoc</protocExecutable-->
+          <protocExecutable>C:\Java\protoc-3.6.0-win32\bin\protoc.exe</protocExecutable>
           <includeDependenciesInDescriptorSet>true</includeDependenciesInDescriptorSet>
           <attachDescriptorSet>true</attachDescriptorSet>
           <writeDescriptorSet>true</writeDescriptorSet>
