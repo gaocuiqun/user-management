@@ -1,22 +1,30 @@
 package com.sample.app;
 
-import com.github.apuex.springbootsolution.runtime.*;
-import com.google.protobuf.*;
-import com.google.protobuf.util.*;
-import com.sample.message.*;
+import com.github.apuex.springbootsolution.runtime.Messages;
+import com.google.protobuf.Descriptors;
+import com.google.protobuf.util.JsonFormat;
+import com.sample.controller.CaptchaFilter;
+import com.sample.message.UserManagement;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
+import org.springframework.http.converter.protobuf.ProtobufJsonFormatHttpMessageConverter;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.boot.builder.*;
-import org.springframework.boot.web.servlet.support.*;
-import org.springframework.context.annotation.*;
-import org.springframework.http.converter.protobuf.*;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Configuration
 @ComponentScan({"com.sample.*"})
 @ImportResource("classpath:app-config.xml")
+@EnableWebSecurity
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
@@ -45,5 +53,17 @@ public class Application extends SpringBootServletInitializer {
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
     return application.sources(Application.class);
   }
+
+//  @Bean
+//  public FilterRegistrationBean<CaptchaFilter> loggingFilter(){
+//    FilterRegistrationBean<CaptchaFilter> registrationBean
+//            = new FilterRegistrationBean<>();
+//
+//    registrationBean.setFilter(new CaptchaFilter());
+//    registrationBean.addUrlPatterns("/login");
+//    registrationBean.setOrder(0);
+//
+//    return registrationBean;
+//  }
 }
     

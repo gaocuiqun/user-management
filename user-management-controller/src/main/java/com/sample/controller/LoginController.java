@@ -19,7 +19,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Controller
-@RequestMapping(value="auth", method=RequestMethod.POST)
 public class LoginController {
   private final static Logger logger = LoggerFactory.getLogger(LoginController.class);
   @Autowired
@@ -44,33 +43,38 @@ public class LoginController {
     captchaGenerator.draw(token, resp.getOutputStream());
   }
 
-  @GetMapping(value="login")
-  public String login(@RequestParam(name = "userName") String userName,
+  @PostMapping(value="sign-in")
+  public String login(@RequestParam(name = "username") String username,
                       @RequestParam(name = "password") String password,
                       @RequestParam(name = "captcha") String captcha,
                       HttpServletRequest r) {
-    RetrieveUserCmd c = RetrieveUserCmd.newBuilder()
-            .setUserId(userName)
-            .build();
+    org.springframework.web.servlet.mvc.ParameterizableViewController controller;
+    logger.info("login, processing posted parameters.");
     try {
-      if(captcha == null || captcha.equals(getToken(r.getSession()))) {
-        return "login-failed";
+      String ssnCaptcha = getToken(r.getSession());
+      if(captcha == null || !captcha.equals(ssnCaptcha)) {
+        logger.info("login-failed, captcha doesn't match(ssn against posted): {} != {}.", ssnCaptcha, captcha);
+        return "login";
       }
 
-      UserVo user = service.retrieve(c, r.getUserPrincipal(), new URI(r.getRequestURI()));
-      if(user == null || !user.getPassword().equals(hashed(password, "MD5"))) {
-        return "login-failed";
-      }
-      r.login(userName, password);
-      return "welcome";
+//      RetrieveUserCmd c = RetrieveUserCmd.newBuilder()
+//              .setUserId(userName)
+//              .build();
+//      UserVo user = service.retrieve(c, r.getUserPrincipal(), new URI(r.getRequestURI()));
+//      if(user == null || !user.getPassword().equals(hashed(password, "MD5"))) {
+//        logger.info("login-failed, password doesn't match.");
+//      return "login";
+//      }
+      logger.info("user verification success.");
+      return "login";
     } catch (Exception ex) {
       ex.printStackTrace();
-      return "login-failed";
+      return "login";
     }
   }
 
   @RequestMapping(value="logout", method=RequestMethod.GET)
-  public String logout(Model model, HttpServletRequest r) {
+  public String logout(HttpServletRequest r) {
     HttpSession ssn = r.getSession(false);
     if(ssn != null) ssn.invalidate();
     return "logged-out";
