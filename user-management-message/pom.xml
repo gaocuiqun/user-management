@@ -20,44 +20,6 @@
       <version>3.6.1</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <!-- walk-around solution for idea cannot import generated code. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <resources>
-            <resource>
-              <directory>target/generated-resources</directory>
-            </resource>
-          </resources>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.xolstice.maven.plugins</groupId>
-        <artifactId>protobuf-maven-plugin</artifactId>
-        <version>0.5.1</version>
-        <configuration>
-            <protocExecutable>/usr/local/bin/protoc</protocExecutable>
-          <includeDependenciesInDescriptorSet>true</includeDependenciesInDescriptorSet>
-          <attachDescriptorSet>true</attachDescriptorSet>
-          <writeDescriptorSet>true</writeDescriptorSet>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test-compile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
 
        
